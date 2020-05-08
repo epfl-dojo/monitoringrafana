@@ -5,7 +5,28 @@ services:
     image: prom/prometheus:v2.18.1
     container_name: prom_prometheus
     restart: unless-stopped
-    expose:
-      - 9090
     ports:
       - "9090:9090"
+      
+      
+  grafana:
+    image: grafana/grafana
+    restart: always
+    ports:
+      - "3000:3000"
+  
+  node_exporter:
+    image: prom/node-exporter
+    container_name: prom_node_exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    expose:
+      - 9100
