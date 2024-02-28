@@ -1,6 +1,7 @@
-# monitoringrafana
+# MonitorinGrafana
 
-A docker-compose example to monitor a local computer with Grafana, Prometheus and node-exporter.
+A docker-compose example to monitor a local computer with Grafana, Prometheus,
+Alertmanager and node-exporter.
 
 ## Setup
 
@@ -8,6 +9,7 @@ A docker-compose example to monitor a local computer with Grafana, Prometheus an
 `docker-compose up -d`
 
 ### Configuration
+
 ##### Data source
 
 Open a browser and connect to http://localhost:3000

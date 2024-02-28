@@ -1,0 +1,8 @@
+route:
+  receiver: 'telegram'
+
+receivers:
+  - name: 'telegram'
+    telegram_configs:
+    - bot_token: '1234567890:CHANGEME-TALK-TO-@BOT_FATHER-ON-TELEGRAM'
+      chat_id: 1234567 # CHANGEME 

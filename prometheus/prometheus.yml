@@ -8,6 +8,15 @@ global:
   # How frequently to evaluate rules.
   evaluation_interval: 1m
 
+alerting:
+  alertmanagers:
+    - scheme: http
+      static_configs:
+        - targets: [ 'alertmanager:9093' ]
+
+rule_files:
+  - "rules/*.yml"
+
 # A list of scrape configurations.
 scrape_configs:
   - job_name: 'nodeexporter'
